@@ -1,0 +1,140 @@
+<mvc:View
+    controllerName="northwind.controller.Products"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+>
+    <Page
+        id="page"
+        showHeader="false"
+    >
+        <HBox alignItems="Center">
+            <VBox class="sapUiSmallMarginBegin sapUiSmallMarginTop">
+                <Label
+                    text="Name"
+                    design="Bold"
+                    required="true"
+                />
+                <SearchField
+                    id="name"
+                    width="16rem"
+                    placeholder="Search by name"
+                    search="onSearchByName"
+                />
+            </VBox>
+
+            <VBox class="sapUiSmallMarginBegin sapUiSmallMarginTop">
+                <Label
+                    text="Release Date"
+                    design="Bold"
+                    required="true"
+                />
+                <DateRangeSelection
+                    id="DRS"
+                    showCurrentDateButton="true"
+                    showFooter="true"
+                    change="handleChange"
+                    width="16rem"
+                />
+            </VBox>
+
+            <VBox class="sapUiSmallMarginBegin sapUiSmallMarginTop">
+                <Label
+                    text="Rating"
+                    design="Bold"
+                    required="true"
+                />
+                <SearchField
+                    id="rating"
+                    width="16rem"
+                    placeholder="Search by Rating"
+                    search="onSearchByRating"
+                />
+            </VBox>
+
+            <Button
+                text="Filter"
+                press="onFilter"
+                class="sapUiLargeMarginBegin sapUiMediumMarginTop"
+            />
+
+            <Button
+                text="Clear Filters"
+                press="clearFilters"
+                class="sapUiMediumMarginBegin sapUiMediumMarginTop"
+            />
+        </HBox>
+        <Table
+            id="idProductsTable"
+            items="{path: '/Products' , sorter: 
+            [{
+            path: 'Name',
+            descending : false
+            },
+            {
+            path: 'Price',
+            descending : true
+            }]}"
+            noDataText="No Products found"
+            growing="true"
+            growingThreshold="5"
+            growingScrollToLoad="true"
+            mode="SingleSelectMaster"
+            itemPress="onRowPress"
+            selectionChange="onRowSelectionChange"
+        >
+            <headerToolbar>
+                <OverflowToolbar>
+                    <content>
+                        <Title text="Products" />
+                        <ToolbarSpacer />
+                        <Button text="Add Product" />
+                    </content>
+                </OverflowToolbar>
+            </headerToolbar>
+            <columns>
+                <Column>
+                    <Text text="ID" />
+                </Column>
+
+                <Column>
+                    <Text text="Name" />
+                </Column>
+
+                <Column>
+                    <Text text="Description" />
+                </Column>
+
+                <Column width="20rem">
+                    <Text text="Release Date" />
+                </Column>
+
+                <Column
+                    minScreenWidth="Tablet"
+                    demandPopin="true"
+                >
+                    <Text text="Rating" />
+                </Column>
+
+                <Column
+                    minScreenWidth="Tablet"
+                    demandPopin="true"
+                >
+                    <Text text="Price" />
+                </Column>
+            </columns>
+
+            <items>
+                <ColumnListItem type="Active">
+                    <cells>
+                        <Text text="{ID}" />
+                        <Text text="{Name}" />
+                        <Text text="{Description}" />
+                        <Text text="{ReleaseDate}" />
+                        <Text text="{Rating}" />
+                        <Text text="{Price}" />
+                    </cells>
+                </ColumnListItem>
+            </items>
+        </Table>
+    </Page>
+</mvc:View>
