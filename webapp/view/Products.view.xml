@@ -129,9 +129,18 @@
                         <Text text="{ID}" />
                         <Text text="{Name}" />
                         <Text text="{Description}" />
-                        <Text text="{ReleaseDate}" />
+                        <!-- <Text text="{path: 'ReleaseDate' , formatter: '.formatter.formatDate'}" /> -->
+                        <Text
+                            text="{path: 'ReleaseDate' , type:'sap.ui.model.type.Date' , formatOptions : { pattern : 'dd-MM-yyyy'}}"
+                        />
                         <Text text="{Rating}" />
-                        <Text text="{Price}" />
+                        <!-- <Text text="{path: 'Price' , formatter: '.formatter.formatPrice'}" /> -->
+                        <Text
+                            text="{parts: [
+                            {path: 'Price'},
+                             {value: 'USD'}
+                             ], type: 'sap.ui.model.type.Currency', formatOptions : {showMeasure : true}}"
+                        />
                     </cells>
                 </ColumnListItem>
             </items>

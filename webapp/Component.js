@@ -1,7 +1,8 @@
 sap.ui.define([
     "sap/ui/core/UIComponent",
-    "northwind/model/models"
-], (UIComponent, models) => {
+    "northwind/model/models",
+    "sap/ui/model/json/JSONModel"
+], (UIComponent, models, JSONModel) => {
     "use strict";
 
     return UIComponent.extend("northwind.Component", {
@@ -15,6 +16,10 @@ sap.ui.define([
         init() {
             // call the base component's init function
             UIComponent.prototype.init.apply(this, arguments);
+
+            const sharedModel = new JSONModel();
+            // const sharedModel = new sap.ui.model.json.JSONModel();
+            this.setModel(sharedModel, "shared");
 
             // set the device model
             this.setModel(models.createDeviceModel(), "device");

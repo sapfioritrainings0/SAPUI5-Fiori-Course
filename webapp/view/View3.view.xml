@@ -1,0 +1,11 @@
+<mvc:View
+    controllerName="northwind.controller.View3"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+>
+    <Page
+        id="view3"
+        showHeader="false"
+    >
+    </Page>
+</mvc:View>

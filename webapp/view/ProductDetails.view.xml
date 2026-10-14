@@ -1,0 +1,104 @@
+<mvc:View
+    controllerName="northwind.controller.ProductDetails"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:uxap="sap.uxap"
+    xmlns:form="sap.ui.layout.form"
+>
+    <!-- <Page
+        id="detailpage"
+        showHeader="true"
+        showNavButton="true"
+        navButtonPress="onBackPress"
+    > -->
+
+    <!-- <Button text="Navigate to View 3" press="onNavigate"></Button> -->
+
+    <uxap:ObjectPageLayout id="objectPage">
+    
+      <!-- ====================================== HEADER ====================================== -->
+
+      <uxap:headerTitle>
+      <uxap:ObjectPageDynamicHeaderTitle >
+      <uxap:heading>
+      <Title  text="{oModel>/details/Name}"></Title>
+      </uxap:heading>
+      <uxap:expandedContent>
+      <Text text="{oModel>/details/ID}"></Text>
+      </uxap:expandedContent>
+      </uxap:ObjectPageDynamicHeaderTitle>
+      
+      </uxap:headerTitle>
+
+      <!-- ======================================SECTIONS======================================== -->
+
+      <uxap:sections>
+      
+      <!-- General Information section-->
+      
+      <uxap:ObjectPageSection title="General Information" titleUppercase="false">
+  
+      <uxap:ObjectPageSubSection title="General Info">
+      <form:SimpleForm editable="false" layout="ResponsiveGridLayout">
+      <form:content>
+      <Label text="Name"></Label>
+      <Text text="{oModel>/details/Name}" ></Text>
+
+
+      <Label text="Description"></Label>
+      <Text text="{oModel>/details/Description}"></Text>
+
+      <Label text="Status"></Label>
+      <ObjectStatus text="Confirmed"  state="Error"></ObjectStatus>
+      </form:content>
+      
+      </form:SimpleForm>
+      
+      
+      
+      </uxap:ObjectPageSubSection>
+      
+      
+      
+     
+      
+      
+      
+      
+      </uxap:ObjectPageSection>
+
+         <!-- PRICING SECTION -->
+   
+        <uxap:ObjectPageSection title="Pricing" titleUppercase="true">
+  
+      <uxap:ObjectPageSubSection title="Pricing">
+      <form:SimpleForm editable="false" layout="ResponsiveGridLayout">
+      <form:content>
+      <Label text="Price"></Label>
+      <Text text="{oModel>/details/Price}" ></Text>
+
+
+      <Label text="Rating"></Label>
+      <Text text="{oModel>/details/Rating}"></Text>
+
+      </form:content>
+      
+      </form:SimpleForm>
+      
+      
+      
+      </uxap:ObjectPageSubSection>
+      
+      
+      
+     
+      
+      
+      
+      
+      </uxap:ObjectPageSection>
+      </uxap:sections>
+    
+    </uxap:ObjectPageLayout>
+    <!-- </Page> -->
+</mvc:View>

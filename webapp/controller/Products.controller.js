@@ -1,14 +1,16 @@
 sap.ui.define([
     "sap/ui/core/mvc/Controller",
     "sap/ui/model/Filter",
-    "sap/ui/model/FilterOperator"
-], (Controller, Filter, FilterOperator) => {
+    "sap/ui/model/FilterOperator",
+    "northwind/model/formatter"
+], (Controller, Filter, FilterOperator, formatter) => {
     "use strict";
 
     return Controller.extend("northwind.controller.Products", {
-
+        formatter : formatter ,
         onInit() {
             console.log("on init is called")
+            this.router = this.getOwnerComponent().getRouter();
         },
          
         // onBeforeRendering : function()
@@ -135,6 +137,12 @@ sap.ui.define([
             //fetch a complete row
             const oRowObject = oContext.getObject();
             console.log(oRowObject);
+
+            this.getView().getModel("shared").setData(oRowObject);
+
+            this.router.navTo("ProductDetailsView", {
+                ID : productId
+            });
         },
 
         // onRowSelectionChange : function()

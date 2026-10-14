@@ -93,9 +93,23 @@
       "routes": [
         {
           "name": "RouteProducts",
-          "pattern": ":?query:",
+          "pattern": "",
           "target": [
             "TargetProducts"
+          ]
+        },
+        {
+          "name" : "ProductDetailsView",
+          "pattern": "Detail/{ID}",
+          "target" : [
+            "TargetDetailPage"
+          ]
+        },
+        {
+          "name" : "View3Page",
+          "pattern": "AnotherView/:IIID:",
+          "target" : [
+            "AnotherViewTarget"
           ]
         }
       ],
@@ -103,6 +117,14 @@
         "TargetProducts": {
           "id": "Products",
           "name": "Products"
+        },
+        "TargetDetailPage" : {
+          "id": "ProductDetails",
+          "name": "ProductDetails"
+        },
+        "AnotherViewTarget" : {
+            "id": "View3",
+          "name": "View3"
         }
       }
     },
